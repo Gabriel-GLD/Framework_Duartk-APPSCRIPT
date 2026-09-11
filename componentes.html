@@ -377,40 +377,7 @@
 
 
 
-
-
-
-
   /* FIM (BUTTON) */
-
-
-
-
-
-
-
-  /* ===== ALERT/ FEEDBACK ===== */
-  /* NOVA DOCUMENTAÇÃO: para mensagens mais gerais (além do modal) */
-  /* Caixa de mensagem */
-  .alert {
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-  }
-
-  /* Mensagem de sucesso */
-  .alert-success {
-    background: #d4edda;
-    color: var(--cor-sucesso);
-  }
-
-  /* Mensagem de ERRO */
-  .alert-error {
-    background: #f8d7da;
-    color: var(--cor-erro);
-  }
-
-  /* FIM (ALERT) */
 
 
 
@@ -634,16 +601,76 @@
 
 
 
+  /* ===== ALERT/ FEEDBACK ===== */
+  /* NOVA DOCUMENTAÇÃO: para mensagens mais gerais (além do modal) */
+  /* Caixa de mensagem */
+  .alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* Mensagem de sucesso */
+  .alert-success {
+    background: #d4edda;
+    color: var(--cor-sucesso);
+  }
+
+  /* Mensagem de ERRO */
+  .alert-error {
+    background: #f8d7da;
+    color: var(--cor-erro);
+  }
+
+  /* FIM (ALERT) */
 
 
-    /* ===== MODAL ===== */
+
+
+
+
+
+
+
+  /* MODAL/ALERTA SUPERIOR DIREITO */
+
+  /* .modal-right-alert {
+
+      padding: 20px;
+
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      gap: 16px;
+      flex: 1;
+
+      background: white;
+      color: var(--cor-aviso);
+
+
+  } */
+
+  /* FIM MODAL SUPERIOR DE AVISO */
+
+
+
+
+
+
+
+
+
+
+  /* ===== MODAL ===== */
 
 
     /* 
     modal normal: 600px
     lg: 800px
     xl: 1100 
-    full: 1400 
+     full: 1400 
     */
 
     .modal {
@@ -1021,8 +1048,6 @@
 
 
 
-
-
   /* MODAIS ESPECIAIS */
 
   /* CARREGAMENTO (NÃO FECHA AO CLICAR FORA DO MODAL) */
@@ -1062,6 +1087,84 @@
     color: var(--cor-erro);
     text-align: center;
   }
+
+  /* MODAL / ALERTA SUPERIOR DIREITO */
+
+  .modal.right-alert {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: transparent;
+
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    padding: 20px;
+
+    pointer-events: none;
+
+    overflow: visible;
+  }
+
+  .modal.right-alert.active {
+    display: flex;
+  }
+
+
+  /* CAIXA DO ALERTA */
+
+  .modal.right-alert > div {
+    width: 100%;
+    max-width: 350px;
+
+    margin-top: 0;
+
+    border-radius: 6px;
+
+    pointer-events: auto;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, .15),
+      0 2px 4px rgba(0, 0, 0, .08);
+  }
+
+
+  /* CABEÇALHO */
+
+  .modal.right-alert > div > h1,
+  .modal.right-alert > div > h2,
+  .modal.right-alert > div > h3 {
+    padding: 10px 14px;
+
+    font-size: 1rem;
+
+    text-align: center;
+
+    background: var(--cor-aviso);
+    color: white;
+  }
+
+
+
+   /* LIBERA A ROLAGEM QUANDO HOUVER APENAS */
+   /* UM RIGHT-ALERT ATIVO */
+
+  body:has(.modal.right-alert.active):not(:has(.modal.active:not(.right-alert))) {
+    overflow: auto !important;
+  }
+
+  html:has(.modal.right-alert.active):not(:has(.modal.active:not(.right-alert))) {
+    overflow: auto !important;
+  }
+
+
+
+
+
+
+
 
   /* MODAL MAIOR (MAIS LARGO) ***OPCIONAIS*** */
 
