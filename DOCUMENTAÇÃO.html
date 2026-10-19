@@ -1,18 +1,21 @@
 <!-- 
-  ATUALIZAÇÕES A SEREM IMPLEMENTADAS:
-
-
-  *Colocar alternativas novas de*:
-
-  -Tirar o esc do Modal loading > FEITO + aprimorar
-
-  -Olhar formatação para retirar formatação padrão dos navegadores
-
-
-
-
-
   DOCUMENTAÇÃO DUART_SYSTEM ✋😎🤚
+
+
+
+
+  SUMÁRIO
+
+
+  1.1 :
+
+
+  EM ANDAMENTO
+  
+
+
+
+
 
 EX DE FORMATAÇÃO PADRÃO COM (ALINHAMENTO GOVBR):
 
@@ -192,6 +195,39 @@ EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
 
 
 ====FIM INPUTS BUTTONS====
+
+
+
+
+
+
+
+
+
+
+====TOOLTIP (AJUDA COM INFORMAÇÕES AO PASSAR O MOUSE POR CIMA)====
+
+
+      <div class="pd-tooltip">
+
+        <button class="button">Filtrar</button>     <<<<===== conteudo que vai ter ao lado do "?"
+
+        <span
+          class="pd-tooltip-help"
+          tabindex="0"
+          aria-label="Ajuda"
+          role="button"
+        ></span>
+
+        <span class="pd-tooltip-text" role="tooltip">
+          Salva as alterações realizadas.                     <<<====Descrição ao passar o mouse por cima do "?"
+        </span>
+      </div>
+
+
+====TOOLTIP====
+
+
 
 
 
@@ -638,6 +674,25 @@ EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
   ====FIM SINTAXE MODAL PADRÃO
 
 
+
+
+  ====MODAL ALERTA SUPERIOR DIREITO====
+
+    (NÃO É RETIRADO CLICANDO E DEIXA O USUÁRIO CONTINUAR MEXENDO NA INTERFACE)
+
+
+    <div class="modal right-alert" id="modal-right-alert">
+      <div>
+
+        <h3>Aviso</h3>
+
+        <div class="modal-body-aviso">
+          <p>Teste de aviso</p>
+        </div>
+      </div>
+    </div>
+
+  ====FIM MODAL ALERTA SUPERIOR
 
 
 
