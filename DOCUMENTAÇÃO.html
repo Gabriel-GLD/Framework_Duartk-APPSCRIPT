@@ -1,62 +1,44 @@
 <!-- 
   DOCUMENTAÇÃO DUART_SYSTEM ✋😎🤚
 
-  SUMÁRIO
+  ****====SUMÁRIO====****
+
+  1 SINTAXE LAYOUT:
+
+    1.1: CORES
+    1.2: HEADER
+    1.3: SIDEBAR
+    1.4: MAIN/CARD e FORMGROUP simples (onde ficam os PRINCIPAIS conteudos da interface)
+    1.5: TEXTS/ TITLE
 
 
-  1.1 SINTAXE LAYOUT:
-
-  1.2 INPUTS:
-
-  1.3 ALERTAS/AVISOS:
-
-  1.4 LAYOUTS PERSONALIZADOS:
-
-  1.5 INPUTS PERSONALIZADOS:
+  2 INPUTS E CONTEÚDOS:
+    2.1: BUTTONS
+    2.2: INPUT/ SELECT e variantes 
+    2.3: CHECKBOX/ RADIO
+    2.4: TABLE
+    2.5 MODAIS DE CONTEÚDO (E suas ativações)
 
 
+  3 ALERTAS/AVISOS:
+    3.1: MODAIS DE ALERTA e variantes
+    3.2: ALERTS
+    3.3: AVISOS DE CADASTRO
 
 
-
-  EM ANDAMENTO
-  
-
-EX DE FORMATAÇÃO PADRÃO COM (ALINHAMENTO GOVBR):
-
-====*HEADER* EX:====
-
-   <header class="header">
-    <div class="left">
-      <button class="btn-header" onclick="toggleSidebar()">☰</button>
-      <span class="title">NOME DO SISTEMA</span>
-    </div>
-
-    <div class="right">
-      ====Espaço futuro (perfil, ações, etc)====
-    </div>
-  </header>
-
-====FIM HEADER EX====
+  4 LAYOUTS PERSONALIZADOS:
+    4.1: CARDS CENTRALIZADOS
+    4.2: CARDS ALINHADOS 
+    4.3 POSICIONAMENTOS ESPECIFICOS OU DIFERENTES DE INPUTS
 
 
+  5 INPUTS PERSONALIZADOS:
+    5.1: TITLE GERENCIADOR DE CONTEUDO
+    5.2: CHECK GERENCIADOR DE CONTEUDO
+    5.3: GERENCIADOR DE CONTEUDO
 
-
-
-
-===SCRIPT PARA BOTÃO DE *ESCONDER SIDEBAR*===
-
-  function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-
-    if (window.innerWidth <= 1200) {
-      sidebar.classList.toggle('open');
-    } else {
-      document.body.classList.toggle('sidebar-hidden');
-    }
-  }
-
-
-====FIM SCRIPT SIDEBAR====
+  6 EXTRAS:
+    6.1
 
 
 
@@ -64,51 +46,536 @@ EX DE FORMATAÇÃO PADRÃO COM (ALINHAMENTO GOVBR):
 
 
 
-===== *SIDEBAR* EX: ===== 
-
-  <aside class="sidebar">
-    <a href="#" class="active">Dashboard</a>
-    <a href="#">Alunos</a>
-    <a href="#">Turmas</a>
-    <a href="#">Relatórios</a>
-  </aside>
-
-====FIM SIDEBAR====
 
 
 
 
+  1 SINTAXE LAYOUT:
+
+
+    1.1 CORES:
+
+      --blue-vivid-50: #1351b4;
+      --blue-vivid-60: #0c326f;
+
+      --gray-10: #f8f8f8;
+      --gray-80: #1f1f1f;
+      --gray-60: #555555;
+
+      --pure-0: #ffffff;
+
+      --border-default: #dcdcdc;
+
+      --success: #168821;
+      --danger: #e52207;
+      --warning: #ffcd07;
+      --info: #2670e8;
+
+
+      ===== PADRÂO DE CORES UTILIZADO (SISTEMA ATUAL) ===== 
+
+      --cor-primaria: var(--blue-vivid-50);
+      --cor-secundaria: var(--blue-vivid-60);
+
+      --bg: var(--gray-10); /* background */
+      --card: var(--pure-0);
+
+      --texto: var(--gray-80);
+      --muted: var(--gray-60); /*Texto secundário*/
+
+      --borda: var(--border-default);
+
+      --cor-sucesso: var(--success);
+      --cor-erro: var(--danger);
+      --cor-aviso: var(--warning);
+
+
+      ===== INTERAÇÃO ===== 
+
+      --interactive: var(--blue-vivid-50);
+      --focus: rgba(19, 81, 180, 0.25);
+      }
+
+
+    FIM 1.1
 
 
 
-EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
 
-====MAIN, CARDS E FORM GROUP EX:====
 
-  <div class="main">
+    1.2 HEADER:
 
-    ==card com form==
+    
+      <header class="header">
+        <div class="left">
+          <button class="btn-header" onclick="toggleSidebar()">☰</button>
+          <span class="title">NOME DO SISTEMA</span>
+        </div>
 
-      <div class="card">                           <<<<< OU "card-aligned" no card principal (para os outros cards dentro dele fiquem todos alinhados)  
-        <h1>Cadastrar Aluno</h1>
+        <div class="right">
+          ====Espaço futuro (perfil, ações, etc)====
+        </div>
+      </header>
 
-        ==form group para inputs==
+
+
+    FIM 1.2
+
+
+
+
+
+    1.3 SIDEBAR
+
+      <aside class="sidebar">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Alunos</a>
+        <a href="#">Turmas</a>
+        <a href="#">Relatórios</a>
+      </aside>
+
+    FIM 1.3
+
+
+
+
+
+
+    1.4: MAIN/CARD e FORMGROUP simples (onde ficam os conteudos da interface)
+
+      <div class="main">                      <<==ENVOLVE OS CARDS E TODO O CONTEUDO PRINCIPAL DA INTERFACE
+
+        <div class="card">                      <<==OS CONTEUDOS VÃO SER COLOCADOS DENTRO DELES, PODENDO CRIAR OUTROS PARA OUTROS
+          <h1>TITULO DA INTERFACE</h1>
         
+          <div class="form-group">              <<==ENVOLVE A MAIORIA DOS INPUTS, MAS PODE TER OUTROS COMPORTAMENTOS (olhar SUMÁRIO 4)
+            <label>Nome</label>
+            <input type="text" placeholder="Nome completo">
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="error" placeholder="email@exemplo.com">
+            <div class="feedback error">Email inválido</div>
+          </div>
+
+    
+        </div>
+
+        <div class="card">
+
+          **exemplo de outro card para outros conteudos**
+
+        </div>
+
+      </div>
+
+    FIM 1.4
+
+
+
+    1.5: TEXTS/ TITLE
+
+      **<h1> 2 3 etc.. e <p> NÃO PRECISAM DE CLASS**
+
+
+      **TEXTOS MAIS CLAROS**
+
+      <p class="text-clean">Teste de cor mais clara para textos</p>
+
+
+    FIM 1.5
+
+
+  FIM 1 SINTAXE LAYOUT
+
+
+
+
+
+  2 INPUTS E CONTEÚDOS:
+
+
+    2.1: BUTTONS
+
+      <button class="button">
+        BUTTON PADRÃO(FUNDO AZUL LETRA BRANCA)
+      </button>
+
+
+       <button class="button button-success">
+          BUTTON SUCESSO
+        </button>
+
+
+        <button class="button button-danger">
+          BUTTON ERRO
+        </button>
+
+
+        <button class="button button-outline">
+          BUTTON SECUNDÁRIO (FUNDO BRANCO LETRA AZUL)
+        </button>
+
+    FIM 2.1
+
+
+
+
+    
+    2.2: INPUT/ SELECT e variantes
+
+      *==INPUT TEXT e SELECT *PADRÃO* NÃO PRECISA DE CLASS a não ser para colocar ESTADOS==*
+
+      **ESTADOS DO INPUT TEXT**
+
+      ERRO:
+
+        <input type="email" class="error" placeholder="email@exemplo.com">
+
+
+      SUCESSO:
+
+        <input type="email" class="success" placeholder="email@exemplo.com">
+
+
+      DESABILITADO:
+        <input type="email" class="disabled" placeholder="email@exemplo.com">
+
+
+
+      **SELECT**:
+
+        <select class="success">       <<== error OU disabled
+          <option>Selecione</option>
+          <option>A1</option>
+          <option>B2</option>
+        </select>
+
+
+    FIM 2.2
+
+
+
+
+
+    2.3: CHECKBOX/ RADIO
+
+
+      ** CHECKBOX **:
+
+      <div class="form-group">
+    
+        <div class="filter-options">
+
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>CHECK 1</span>
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>CHECK 2</span>
+          </label>
+        </div>
+      </div>
+
+
+
+
+      <====CHECKBOX COM ESPAÇAMENTO MENOR (MAIS JUNTO)====>
+
+      <div class="checkbox-spacing">                <<<==== ADICIONAR UMA DIV QUE ENVOLVA OS CHECKS DESEJADOS COM A CLASS
+
         <div class="form-group">
-          <label>Nome</label>
-          <input type="text" placeholder="Nome completo">
+          <label class="checkbox">
+              <input type="checkbox">
+              <span>CHECK 1</span>
+            </label>
         </div>
 
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" class="error" placeholder="email@exemplo.com">
-          <div class="feedback error">Email inválido</div>
+          <label class="checkbox">
+              <input type="checkbox">
+              <span>CHECK 2</span>
+            </label>
         </div>
 
-  </div>
+      </div> 
 
 
-====FIM MAIN CARDS ETC...====
+
+      ** RADIO **:
+
+
+      <div class="form-group">
+
+        <label class="radio">                   <<<<======= QUASE MESMA UTILIZAÇÃO DO CHECK NORMAL, MAS COM A CLASS DIFERENTE 
+          <input type="radio" name="tipo">
+          <span>RADIO 1</span>
+        </label>
+
+        <label class="radio">
+          <input type="radio" name="tipo">
+          <span>RADIO 2</span>
+        </label>
+
+        <label class="radio">
+          <input type="radio" name="tipo">
+          <span>RADIO 3</span>
+        </label>
+
+      </div>
+
+
+    FIM 2.3
+
+
+
+
+
+    2.4: TABLE
+
+      ==TABELA COM BOTÕES==
+
+      <div class="card">
+        <h1>Lista de Alunos</h1>
+
+        <div class="table-container">
+          <table class="table-fixed">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Turma</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>João Pedro</td>
+                <td>A1</td>
+                <td><span class="status success">Ativo</span></td>                <<<== CLASS PARA O TD TABLE PARA STATUS
+                <td class="table-actions">
+                  <button class="button button-outline">Editar</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Maria Souza</td>
+                <td>B2</td>
+                <td><span class="status error">Inativo</span></td>               <<==
+                <td class="table-actions">
+                  <button class="button button-danger">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    FIM 2.4
+
+
+
+
+    2.5 MODAIS DE CONTEÚDO (E suas ativações)
+
+
+      **SCRIPTS PRÉ DEFINIDOS PARA OS MODAIS (ABRIR POR CLICK)**
+
+
+
+          ==****ABRIR MODAL (BASTA COLOCAR O SEGUINTE COMANDO AO LADO DO CLASS)****==
+
+          EX:
+
+              <button class="button"
+
+                data-modal-open="modal-content"  *SEMPRE MANTENHA OS MODAIS COM SEUS IDs*
+
+              >
+
+              <button class="button"
+
+                data-modal-open="modal-success"  *APENAS COLOCAR O ID DO MODAL QUE DESEJA EM "" *
+              >
+
+          
+          ====****PARA FECHAR OS MODAIS ****====
+
+          EX:
+
+              <button class="button"
+
+                data-modal-close >  *COLOQUE NO BOTÃO OU LOCAL ESPECIFICO ONDE DESEJA FECHAR O MODAL (MAS CLICANDO FORA DELE E EM "esc" VC TAMBÉM FECHA O MODAL)
+                
+                Fechar
+
+              </button>
+
+          !!!!! FUNCIONA COM QUALQUER TAG HTML, NÃO APENAS COM BOTÕES, BASTA APENAS COLOCAR O COMANDO ONDE DESEJAR!!!!
+
+
+
+
+
+
+          ***==Ex ATIVAÇÃO de MODAL GLOBAL==***
+
+
+          ***FAÇA O SCRIPT DE COMO DESEJA ABRIR O MODAL E ADICIONE A CLASSE ABAIXO***
+
+
+
+
+              document.addEventListener("DOMContentLoaded", () => {
+
+                abrirModal("modal-loading");              <<<<=== id do modal que deseja abrir (O "abrirModal e o fecharModal já são pré definidos")
+                                                                                                (basta apenas colocar o id do modal)
+                setTimeout(() => {
+
+                    fecharModal("modal-loading");         <<<<====id do modal que deseja fechar ()
+
+                }, 5000);
+
+              });
+
+
+        ====FIM ATIVAÇÃO MODAL GLOBAL====
+
+
+
+
+
+
+
+        ====MODAL SIMPLES EX:====
+
+
+          ====SINTAXE DO MODAL PADRAO COM FOOTER====
+
+            
+            <div class="modal" id="modal-content">          <<<<<===== COLOQUE A CLASS
+
+              <div>
+
+
+                    <div class="right"  data-modal-close >         <<<==== DIV PARA FAZER O X DO MODAL FUNCIONAR
+                      ✕                                            <<<=== "X" PARA FECHAR O MODAL 
+                    </div>
+
+                  <h2>
+                    *TITULO DO MODAL*
+                  </h2>
+
+                  <div class="modal-body">
+
+                    *CONTEUDO QUE VAI SER COLOCADO NO MODAL
+
+                  </div>
+
+
+                  <footer class="modal-footer">
+
+                    <div class="flex">
+
+                      <button class="button button-outline"
+                        data-modal-close>
+                        Fechar
+                      </button>
+
+                    </div>
+
+                  </footer>
+
+              </div>
+
+            </div>      
+
+
+
+
+
+            ***====MODAIS MAIORES OPCIONAIS=====***
+
+         
+          modal normal: 600px
+          lg: 800px
+          xl: 1100 
+          FULL:1400
+
+          ***MESMO ESQUEMA DE UTILIZAÇÃO DOS NORMAIS (SUPORTANDO MAIS CONTEUDO)***
+              
+
+          MODAL LG: 
+
+          <div class="modal lg" id="modal-lg">        <<== APENAS COLOCAR A NOVA CLASS NO MODAL E MUDAR O ID DE ACORDO COM OQ PRECISA
+
+          MODAL XL:
+
+          <div class="modal xl" id="modal-lg">
+
+          MODAL FULL:  
+
+          <div class="modal full" id="modal-lg">
+
+
+
+
+    FIM 2.5
+
+
+  FIM 2 INPUTS E CONTEÚDOS
+
+
+
+
+
+
+    3 ALERTAS/AVISOS:
+
+
+
+
+      3.1: MODAIS DE ALERTA e variantes
+
+
+
+
+      FIM 3.1
+
+
+
+
+
+      3.2: ALERTS
+
+      FIM 3.2
+
+
+
+
+
+      3.3: AVISOS DE CADASTRO
+
+
+
+
+      FIM 3.3
+
+
+
+
+    FIM 3 ALERTAS/ AVISOS
+
+
+
+
+
+
+
 
 
 ====CARDS CENTRALIZADORES DE CONTEUDO====
@@ -230,114 +697,6 @@ EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
 
 
 ====TOOLTIP====
-
-
-
-
-
-
-
-
-
-====TABLES EX:====
-
-    ==TABELA COM BOTÕES==
-
-    <div class="card">
-      <h1>Lista de Alunos</h1>
-
-      <div class="table-container">
-        <table class="table-fixed">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Turma</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>João Pedro</td>
-              <td>A1</td>
-              <td><span class="status success">Ativo</span></td>
-              <td class="table-actions">
-                <button class="button button-outline btn-open-modal">Editar</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Maria Souza</td>
-              <td>B2</td>
-              <td><span class="status error">Inativo</span></td>
-              <td class="table-actions">
-                <button class="button button-danger">Excluir</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-====FIM TABLES====
-
-
-
-
-
-
-
-===CHECKBOX EX:===
-
-
-  <div class="form-group">
-        <div class="filter-title">Situação</div>
-
-        <div class="filter-options">
-          <label class="checkbox">
-            <input type="checkbox">
-            <span>Ativo</span>
-          </label>
-
-          <label class="checkbox">
-            <input type="checkbox">
-            <span>Inativo</span>
-          </label>
-        </div>
-      </div>
-
-
-
-
-      <====CHECKBOX COM ESPAÇAMENTO MENOR (MAIS JUNTO)====>
-
-    
-      <div class="checkbox-spacing">                <<<==== ADICIONAR UMA DIV QUE ENVOLVA OS CHECKS DESEJADOS COM A CLASS
-
-        <div class="form-group">
-          <label class="checkbox">
-              <input type="checkbox">
-              <span>Teste1</span>
-            </label>
-        </div>
-
-        <div class="form-group">
-          <label class="checkbox">
-              <input type="checkbox">
-              <span>Teste2</span>
-            </label>
-        </div>
-
-      </div> 
-      
-
-
-
-
-====FIM CHECKBOX====
-
-
 
 
 
@@ -568,118 +927,6 @@ EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
 
 
 
-
-====RADIO (ESTILO DE CHECK DIFERENTE QUE SUPORTA APENAS UMA MARCAÇÃO)
-
-
-
-
-        <div class="form-group">
-        <label class="radio">                   <<<<======= QUASE MESMA UTILIZAÇÃO DO CHECK NORMAL, MAS COM A CLASS DIFERENTE 
-          <input type="radio" name="tipo">
-          <span>Pessoa Física</span>
-        </label>
-
-        <label class="radio">
-          <input type="radio" name="tipo">
-          <span>Pessoa Jurídica</span>
-        </label>
-
-        <label class="radio">
-          <input type="radio" name="tipo">
-          <span>Alienígena</span>
-        </label>
-
-
-
-
-====FIM RADIO====
-
-
-
-
-
-
-
-
-======Ex ATIVAÇÃO de MODAL GLOBAL=====
-
-
-  ***FAÇA O SCRIPT DE COMO DESEJA ABRIR O MODAL E ADICIONE A CLASSE ABAIXO***
-
-
-
-
-      document.addEventListener("DOMContentLoaded", () => {
-
-        abrirModal("modal-loading");              <<<<=== id do modal que deseja abrir (O "abrirModal e o fecharModal já são pré definidos")
-                                                                                        (basta apenas colocar o id do modal)
-        setTimeout(() => {
-
-            fecharModal("modal-loading");         <<<<====id do modal que deseja fechar ()
-
-        }, 5000);
-
-      });
-
-
-====FIM ATIVAÇÃO MODAL GLOBAL====
-
-
-
-
-
-
-
-====MODAL EX:====
-
-
-  ====SINTAXE DO MODAL PADRAO COM FOOTER====
-
-    
-    <div class="modal" id="modal-content">          <<<<<===== COLOQUE A CLASS
-
-      <div>
-
-
-            <div class="right"  data-modal-close >         <<<==== DIV PARA FAZER O X DO MODAL FUNCIONAR
-              ✕                                            <<<=== "X" PARA FECHAR O MODAL 
-            </div>
-
-          <h2>
-            *TITULO DO MODAL*
-          </h2>
-
-          <div class="modal-body">
-
-            *CONTEUDO QUE VAI SER COLOCADO NO MODAL
-
-          </div>
-
-
-           <footer class="modal-footer">
-
-            <div class="flex">
-
-              <button class="button button-outline"
-                data-modal-close>
-                Fechar
-              </button>
-
-            </div>
-
-          </footer>
-
-      </div>
-
-    </div>      
-
-
-  ====FIM SINTAXE MODAL PADRÃO
-
-
-
-
   ====MODAL ALERTA SUPERIOR DIREITO====
 
     (NÃO É RETIRADO CLICANDO E DEIXA O USUÁRIO CONTINUAR MEXENDO NA INTERFACE)
@@ -783,191 +1030,6 @@ EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
 
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  *****SCRIPTS PRÉ DEFINIDOS PARA OS MODAIS (ABRIR POR CLICK)*****
-
-
-
-    =====****ABRIR MODAL (BASTA COLOCAR O SEGUINTE COMANDO AO LADO DO CLASS)****====
-
-    EX:
-
-        <button class="button"
-
-          data-modal-open="modal-content"  *SEMPRE MANTENHA OS MODAIS COM SEUS IDs*
-
-        >
-
-        <button class="button"
-
-          data-modal-open="modal-success"  *APENAS COLOCAR O ID DO MODAL QUE DESEJA EM "" *
-        >
-
-    
-    ====****PARA FECHAR OS MODAIS ****====
-
-    EX:
-
-        <button class="button"
-
-          data-modal-close >  *COLOQUE NO BOTÃO OU LOCAL ESPECIFICO ONDE DESEJA FECHAR O MODAL (MAS CLICANDO FORA DELE E EM "esc" VC TAMBÉM FECHA O MODAL)
-          
-          Fechar
-
-        </button>
-
-
-
-
-    !!!!! FUNCIONA COM QUALQUER TAG HTML, NÃO APENAS COM BOTÕES, BASTA APENAS COLOCAR O COMANDO ONDE DESEJAR!!!!
-
-
-  ***FIM EXs DE SCRIPTS PARA MODAIS
-
-
-
-
-
-  EXEMPLOS PARA ATIVAÇÃO DE MODAL
-
-
-
-  MODAL PARA CONTEÚDO BÁSICO
-
-
-  <div class="modal" id="modal-content">
-
-    <div>
-
-
-        <div class="right"  data-modal-close >     
-          ✕                                            <<<=== "X" PARA FECHAR O MODAL (ainda em desenvolvimento, mas funcionando)
-        </div>
-
-      <h2>
-        Editar Aluno
-      </h2>
-
-      <div class="modal-body">
-
-        <div class="form-group">
-          <label>Nome</label>
-          <input type="text" value="João Pedro">
-        </div>
-
-        <div class="form-group">
-          <label>Turma</label>
-
-          <select>
-            <option>A1</option>
-            <option>B2</option>
-          </select>
-        </div>
-
-        <!-- collapse funcionando dentro do modal 
-        <div class="gov-collapse">
-
-          <div class="gov-collapse-header">
-
-            <span class="gov-collapse-icon">▾</span>
-
-            <span>
-              Informações Avançadas
-            </span>
-
-          </div>
-
-          <div class="gov-collapse-content">
-
-            <p>
-              Esse conteúdo pode crescer sem quebrar o modal.
-            </p>
-
-            <div class="table-container">
-
-              <table>
-
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Gabriel</td>
-                    <td>Ativo</td>
-                  </tr>
-
-                  <tr>
-                    <td>Maria</td>
-                    <td>Inativo</td>
-                  </tr>
-
-                  <tr>
-                    <td>João</td>
-                    <td>Ativo</td>
-                  </tr>
-
-                </tbody>
-
-              </table>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- vários campos para demonstrar scroll 
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email">
-        </div>
-
-        <div class="form-group">
-          <label>Telefone</label>
-          <input type="text">
-        </div>
-
-        <div class="form-group">
-          <label>Observações</label>
-          <textarea rows="5"></textarea>
-        </div>
-
-        <div class="flex">
-
-          <button class="button button-success">
-            Salvar
-          </button>
-
-          <button class="button button-outline" data-modal-close>
-            Fechar
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
   
 
 
@@ -1101,488 +1163,6 @@ EX FORMATAÇÃO *MAIN*, E COMPONENTES DENTRO DELE:
 
 
 
-
-
-
-    ***====MODAIS MAIORES OPCIONAIS=====***
-
-      <!-- 
-        modal normal: 600px
-        lg: 800px
-        xl: 1100 
-        FULL:1400
-
-
-
-
-        MESMO ESQUEMA DE UTILIZAÇÃO DOS NORMAIS (SUPORTANDO MAIS CONTEUDO)
-       -->
-
-<!-- ====MODAL LARGO==== --
-
-  <div class="modal lg" id="modal-lg">
-
-    <div>
-
-      <h2>
-        Relatório Completo
-      </h2>
-
-      <div class="modal-body">
-
-        <div class="form-group">
-          <label>Nome do Responsável</label>
-          <input type="text" placeholder="Digite o nome">
-        </div>
-
-        <div class="form-group">
-          <label>Descrição</label>
-
-          <textarea rows="5">
-            Relatório geral do aluno e informações complementares.
-          </textarea>
-        </div>
-
-        <div class="table-container">
-
-          <table class="table-fixed">
-
-            <thead>
-              <tr>
-                <th>Aluno</th>
-                <th>Status</th>
-                <th>Turma</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <td>Gabriel</td>
-                <td>Ativo</td>
-                <td>A1</td>
-              </tr>
-
-              <tr>
-                <td>Maria</td>
-                <td>Inativo</td>
-                <td>B2</td>
-              </tr>
-
-              <tr>
-                <td>João</td>
-                <td>Ativo</td>
-                <td>C3</td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-        <div class="flex">
-
-          <button class="button button-success">
-            Salvar
-          </button>
-
-          <button class="button button-outline" data-modal-close>
-            Fechar
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-
-
-  
-  <!-- ====MODAL XL==== --
-
-  <div class="modal xl" id="modal-xl">
-
-    <div>
-
-      <h2>
-        Dashboard Geral
-      </h2>
-
-      <div class="modal-body">
-
-        <div class="card">
-
-          <h3>
-            Estatísticas
-          </h3>
-
-          <div class="table-container">
-
-            <table class="table-fixed">
-
-              <thead>
-                <tr>
-                  <th>Curso</th>
-                  <th>Alunos</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-
-              <tbody>
-
-                <tr>
-                  <td>Informática</td>
-                  <td>42</td>
-                  <td>Ativo</td>
-                </tr>
-
-                <tr>
-                  <td>Administração</td>
-                  <td>31</td>
-                  <td>Ativo</td>
-                </tr>
-
-                <tr>
-                  <td>Enfermagem</td>
-                  <td>18</td>
-                  <td>Manutenção</td>
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
-
-        </div>
-
-        <div class="card">
-
-          <h3>
-            Informações Complementares
-          </h3>
-
-          <p>
-            Esse modal pode receber praticamente o mesmo conteúdo da interface principal sem quebrar layout.
-          </p>
-
-          <div class="form-group">
-            <label>Observações</label>
-            <textarea rows="6"></textarea>
-          </div>
-
-        </div>
-
-        <div class="flex">
-
-          <button class="button button-success">
-            Confirmar
-          </button>
-
-          <button class="button button-outline" data-modal-close>
-            Fechar
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-
-
-
-  
-    <!-- ====MODAL FULL==== --
-
-    <div class="modal full" id="modal-full">
-
-      <div>
-
-        <h2>
-          Painel Administrativo Completo
-        </h2>
-
-        <div class="modal-body">
-
-          <!-- CARD --
-          <div class="card">
-
-            <h3>
-              Informações Gerais
-            </h3>
-
-            <div class="flex">
-
-              <div class="form-group">
-                <label>Nome</label>
-                <input type="text" placeholder="Digite o nome">
-              </div>
-
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="Digite o email">
-              </div>
-
-            </div>
-
-            <div class="form-group">
-              <label>Descrição</label>
-
-              <textarea rows="5">
-                Sistema completo de gerenciamento.
-              </textarea>
-            </div>
-
-          </div>
-
-
-
-
-
-          <!-- CARD --
-          <div class="card">
-
-            <h3>
-              Tabela de Usuários
-            </h3>
-
-            <div class="table-container">
-
-              <table class="table-fixed">
-
-                <thead>
-
-                  <tr>
-                    <th>Nome</th>
-                    <th>Cargo</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                  </tr>
-
-                </thead>
-
-                <tbody>
-
-                  <tr>
-                    <td>Gabriel</td>
-                    <td>Administrador</td>
-                    <td>
-                      <span class="status success">
-                        Ativo
-                      </span>
-                    </td>
-
-                    <td>
-                      <button class="button button-outline">
-                        Editar
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>Maria</td>
-                    <td>Secretária</td>
-                    <td>
-                      <span class="status warning">
-                        Pendente
-                      </span>
-                    </td>
-
-                    <td>
-                      <button class="button button-outline">
-                        Editar
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>João</td>
-                    <td>Professor</td>
-                    <td>
-                      <span class="status error">
-                        Inativo
-                      </span>
-                    </td>
-
-                    <td>
-                      <button class="button button-outline">
-                        Editar
-                      </button>
-                    </td>
-                  </tr>
-
-                </tbody>
-
-              </table>
-
-            </div>
-
-          </div>
-
-
-
-
-
-          <!-- CARD --
-          <div class="card">
-
-            <h3>
-              Configurações Avançadas
-            </h3>
-
-            <!-- collapse --
-            <div class="gov-collapse">
-
-              <div class="gov-collapse-header">
-
-                <span class="gov-collapse-icon">
-                  ▾
-                </span>
-
-                <span>
-                  Exibir configurações
-                </span>
-
-              </div>
-
-              <div class="gov-collapse-content">
-
-                <div class="form-group">
-
-                  <label>Servidor</label>
-
-                  <input type="text" placeholder="Servidor principal">
-
-                </div>
-
-                <div class="form-group">
-
-                  <label>Porta</label>
-
-                  <input type="text" placeholder="8080">
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-
-
-          <!-- CARD --
-          <div class="card">
-
-            <h3>
-              Categorias Dinâmicas
-            </h3>
-
-            <div class="toggle-group">
-
-              <label class="toggle-check">
-
-                <input
-                  type="checkbox"
-                  data-toggle="financeiro-full"
-                >
-
-                <span>
-                  Financeiro
-                </span>
-
-              </label>
-
-              <label class="toggle-check">
-
-                <input
-                  type="checkbox"
-                  data-toggle="usuarios-full"
-                >
-
-                <span>
-                  Usuários
-                </span>
-
-              </label>
-
-            </div>
-
-            <!-- abas --
-            <div class="toggle-tabs"></div>
-
-            <!-- conteúdo --
-            <div
-              class="toggle-content"
-              data-content="financeiro-full"
-            >
-
-              <div class="form-group">
-
-                <label>Saldo</label>
-
-                <input type="text" value="R$ 15.000">
-
-              </div>
-
-            </div>
-
-            <div
-              class="toggle-content"
-              data-content="usuarios-full"
-            >
-
-              <div class="form-group">
-
-                <label>Total de usuários</label>
-
-                <input type="text" value="325">
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-
-
-          <!-- FOOTER --
-          <div class="flex">
-
-            <button class="button button-success">
-              Salvar Tudo
-            </button>
-
-            <button class="button button-outline" data-modal-close>
-              Fechar
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
 
 
 
