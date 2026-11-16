@@ -4,7 +4,6 @@
   ****====SUMÁRIO====****
 
   1 SINTAXE LAYOUT:
-
     1.1: CORES
     1.2: HEADER
     1.3: SIDEBAR
@@ -23,7 +22,7 @@
   3 ALERTAS/AVISOS:
     3.1: MODAIS DE ALERTA e variantes
     3.2: ALERTS
-    3.3: AVISOS DE CADASTRO
+    3.3: FEEDBACK NOS INPUTS
 
 
   4 LAYOUTS PERSONALIZADOS:
@@ -32,10 +31,12 @@
     4.3 POSICIONAMENTOS ESPECIFICOS OU DIFERENTES DE INPUTS
 
 
-  5 INPUTS PERSONALIZADOS:
+  5 INTERAÇÕES PERSONALIZADOS:
     5.1: TITLE GERENCIADOR DE CONTEUDO
     5.2: CHECK GERENCIADOR DE CONTEUDO
     5.3: GERENCIADOR DE CONTEUDO
+    5.4: TOLTIP (AJUDA COM INFORMAÇÕES AO PASSAR O MOUSE POR CIMA DO "?")
+
 
   6 EXTRAS:
     6.1
@@ -169,6 +170,22 @@
         </div>
 
       </div>
+
+
+
+
+      **MAIN PARA APENAS 1 CARD CENTRALIZADO NO MEIO DA TELA**
+
+        <main class="main-solo">
+
+          <div class="card">
+            
+            <input type="email" class="" placeholder="Digite o Login">
+            <button class="button">Enviar</button>
+            
+          </div>
+          
+        </main>
 
     FIM 1.4
 
@@ -544,6 +561,240 @@
 
 
 
+
+          ====MODAL ALERTA SUPERIOR DIREITO====
+
+            (NÃO É RETIRADO CLICANDO E DEIXA O USUÁRIO CONTINUAR MEXENDO NA INTERFACE)
+
+
+            <div class="modal right-alert" id="modal-right-alert">
+              <div>
+
+                <h3>Aviso</h3>
+
+                <div class="modal-body-aviso">
+                  <p>Teste de aviso</p>
+                </div>
+              </div>
+            </div>
+
+          ====FIM MODAL ALERTA SUPERIOR
+
+
+
+
+          ====MODAL COM BOTÃO DE ROLAGEM LATERAL PARA VIDEOS E OUTROS====
+
+
+            <div class="modal" id="modal-content">
+
+            <div>
+
+              <div class="right" data-modal-close>
+                ✕
+              </div>
+
+              <h2>VÍDEOS - SIGPS</h2>
+
+              <div class="modal-body">
+
+                <div class="scroll-body">           <<<===COLOCAR ESSA CLASS E COLOCAR OS CONTEUDOS DESEJADOS DENTRO DELA, *JUNTO COM OS BOTÕES*
+
+                  <!-- BOTÃO ANTERIOR --
+                  <button
+                    type="button"
+                    data-scroll-prev                      <<<===COLOCAR ESSA "TAG" NO BOTÃO (CÓPIE ELE INTEIRO PARA SER MASI FÁCIL)
+                    aria-label="Conteúdo anterior">
+                    ❮
+                  </button>
+
+
+                  <!-- CONTEÚDO 1 --
+                  <div data-scroll-content>                            <<<< TAG PARA COLOCAR EM TODA DIV DE CONTEUDO
+                    <h4>AVISE 00 - Apresentação</h4>
+
+                    <iframe
+                      src="https://www.youtube.com/embed/TkDv7sxq5do"
+                      title="AVISE 00 - Apresentação"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+
+
+                  <!-- CONTEÚDO 2 --
+                  <div data-scroll-content>
+                    <h4>AVISE 01 - Concessão da 1ª Parcela</h4>
+
+                    <iframe
+                      src="https://www.youtube.com/embed/6Q_BUxtgQzc"
+                      title="AVISE 01"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+
+
+                  <!-- CONTEÚDO 3 --
+                  <div data-scroll-content>
+                    <h4>AVISE 02 - Concessão da 2ª Parcela</h4>
+
+                    <iframe
+                      src="https://www.youtube.com/embed/UwgRzG7i9kw"
+                      title="AVISE 02"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+
+
+                  <!-- BOTÃO PRÓXIMO --
+                  <button
+                    type="button"
+                    data-scroll-next
+                    aria-label="Próximo conteúdo">
+                    ❯
+                  </button>
+
+                </div>
+
+
+                ***OUTROS CONTEUDOS PARA COLOCAR DPS DOS VÍDEOS***
+          
+
+              </div>
+
+            </div>
+
+          </div>
+          
+          
+
+
+
+          <!--====TAGS DIFERENTES NOS ***MODAIS DE AVISO***====-
+
+
+            <!-- MODAL DE CARREGAMENTO --
+
+            <div class="modal loading " id="modal-loading">
+              <div>
+                <h3>
+                  Carregando os Dados
+                </h3>
+                <div class="modal-body-aviso">
+                  <div class=" card flex">
+                    
+                    <div class="spinner"></div>
+                    
+                  </div>
+                  
+                </div>
+                
+              </div>
+
+            </div>
+
+
+          <====MODAL DE CONFIRMAÇÃO====>
+
+        <div class="modal info" id="modal-info">
+        
+              <div>
+                <h3>Carregamento</h3>
+
+                <div class="modal-body-aviso">                           <<<<<=========
+                  <p>
+                    Os dados foram salvos com sucesso. <br>
+                    Deseja continuar?
+                  </p>
+
+
+                  <div>
+
+                    <button class="button">
+                      Sim
+                    </button>
+                    <button class="button button-outline" data-modal-close>
+                      Não
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+          MODAL DE SUCESSO
+
+
+          <div class="modal success" id="modal-success">
+
+            <div>
+
+              <h3>
+                Sucesso
+              </h3>
+
+              <div class="modal-body-aviso">
+
+                <p>
+                  Os dados foram salvos com sucesso.
+                </p>
+
+                <div>
+
+                  <button class="button button-success" data-modal-close>
+                    OK
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+
+            MODAL DE ERRO
+
+
+              <div class="modal error" id="modal-error">
+
+                <div>
+
+                  <h3>
+                    Erro
+                  </h3>
+
+                  <div class="modal-body-aviso">
+
+                    <p>
+                      Não foi possível concluir a operação.
+                    </p>
+
+                    <div>
+
+                      <button class="button button-danger" data-modal-close>
+                        Fechar
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
       FIM 3.1
 
 
@@ -551,6 +802,12 @@
 
 
       3.2: ALERTS
+      
+      <div class="card">
+        <div class="alert alert-success">
+          Sistema carregado com sucesso!
+        </div>
+      </div>
 
       FIM 3.2
 
@@ -558,9 +815,12 @@
 
 
 
-      3.3: AVISOS DE CADASTRO
+      3.3: FEEDBACK NOS INPUTS
 
+          <label>Email</label>
+          <input type="email" class="error" placeholder="email@exemplo.com">
 
+          <div class="feedback error">Email inválido</div>             <<<<======
 
 
       FIM 3.3
@@ -572,134 +832,596 @@
 
 
 
+    4 LAYOUTS PERSONALIZADOS:
 
 
 
+        4.1: CARDS CENTRALIZADOS
 
+          **CARDS CENTRALIZADORES DE CONTEUDO**
 
 
-====CARDS CENTRALIZADORES DE CONTEUDO====
+            <div class= "card-center">
 
 
-  <div class= "card-center">
+              **conteúdo, (EVIRAR FORM GROUP)**
 
 
-    **conteúdo, (EVIRAR FORM GROUP)**
+            </div>
 
+        FIM 4.1
 
-  </div>
 
 
 
 
+        4.2: CARDS ALINHADOS 
 
-====FIM DOS CARDS CENTRALIZADORES====
 
+          **CARDS ALINHADOS**
 
 
+          <div class="card-aligned">   <<<<==== OS CARDS COLOCADOS DENTRO DELES FICARAM ALINHADOS
 
+            <div class= "card">
+              
+              **conteudo**
 
+            </div>
 
+            <div class= "card">
 
+              **conteudo**
+              
+            </div>
 
-====CARDS ALINHADOS====
 
 
-  <div class="card-aligned">   <<<<==== OS CARDS COLOCADOS DENTRO DELES FICARAM ALINHADOS
+          </div>
 
-    <div class= "card">
-      
-      **conteudo**
+        FIM 4.2
 
-    </div>
 
-    <div class= "card">
 
-      **conteudo**
-      
-    </div>
 
 
+        4.3 POSICIONAMENTOS ESPECIFICOS OU DIFERENTES DE INPUTS
 
-  </div>
 
+          <div class="flex">
 
+            **INPUTS OU BUTTONS**
 
+          </div>
 
-====FIM CARDS ALINHADOS====
 
 
 
+          /*PARA COLOCAR OS ITENS UM AO LADO DO OUTRO*/
 
+          /* COLOCA OS ITENS UM AO LADO DO OUTRO*/
 
 
+                <div class="filter-options">
 
-====INPUTS BUTTONS EX:===
+                  <div class="">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>check Normal 1</span>
+                      </label>
+                  </div>
+                  <div class="">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>check normal 2</span>
+                      </label>
+                  </div>
+                  
+                </div>
 
-      <div class="card">
-      <h1>Cadastrar Aluno</h1>
+        FIM 4.3
 
-      <div class="form-group">
-        <label>Nome</label>
-        <input type="text" placeholder="Nome completo">
-      </div>
 
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="error" placeholder="email@exemplo.com">
-        <div class="feedback error">Email inválido</div>
-      </div>
 
-      <div class="form-group">
-        <label>Status</label>
-        <select class="success">
-          <option>Ativo</option>
-          <option>Inativo</option>
-        </select>
-      </div>
 
-      <div class="flex">
-        <button class="button button-success">Salvar</button>
-        <button class="button button-outline">Cancelar</button>
-      </div>
-    </div>
+    FIM 4 LAYOUTS PERSONALIZADOS
 
 
-====FIM INPUTS BUTTONS====
 
 
+    5 INTERAÇÕES PERSONALIZADOS:
 
 
+      5.1: TITLE GERENCIADOR DE CONTEUDO
 
+        ====COLLAPSE EX:====
 
+        <div class = "card">
+            <div class="gov-collapse">
 
+              <div class="gov-collapse-header">
 
+                <span class="gov-collapse-icon"> ▾ </span>   = icone obrigatório (junto com o texto para clicar e fazer a ativação)
 
+                <span>
+                Filtros avançados
+                </span>
 
-====TOOLTIP (AJUDA COM INFORMAÇÕES AO PASSAR O MOUSE POR CIMA)====
+              </div>
 
+              <div class="gov-collapse-content">
 
-      <div class="pd-tooltip">
+                <!-- conteúdo 
 
-        <button class="button">Filtrar</button>     <<<<===== conteudo que vai ter ao lado do "?"
+              </div>
 
-        <span
-          class="pd-tooltip-help"
-          tabindex="0"
-          aria-label="Ajuda"
-          role="button"
-        ></span>
+            </div>
 
-        <span class="pd-tooltip-text" role="tooltip">
-          Salva as alterações realizadas.                     <<<====Descrição ao passar o mouse por cima do "?"
-        </span>
-      </div>
 
+          </div>
 
-====TOOLTIP====
+      FIM 5.1
 
 
 
+      5.2: CHECK GERENCIADOR DE CONTEUDO
+
+
+        <div class="card">                       <<<<=== ***TODO*** O CONTEUDO DEVE SER ENVOLVIDO PELOS CARDS
+
+            <h3>
+              Categorias do Caso
+            </h3>
+
+            <!-- CHECKBOXES --
+            <div class="toggle-group">            <<<<=== COLOCAR TODO O CONTEUDO DO TOGGLE-CHECK DENTRO DELE
+
+              <label class="toggle-check">        <<<= envolve o checkbox e os nomes dos "quadrados de ativação"
+
+                <input
+                  type="checkbox"
+                  data-toggle="criancas"
+                >
+
+                <span>
+                  Crianças e Adolescentes
+                </span>
+
+              </label>
+
+
+
+              <label class="toggle-check">
+
+                <input
+                  type="checkbox"
+                  data-toggle="idosos"
+                >
+
+                <span>
+                  Idosos
+                </span>
+
+              </label>
+
+
+
+              <label class="toggle-check">
+
+                <input
+                  type="checkbox"
+                  data-toggle="pcd"
+                >
+
+                <span>
+                  PCD
+                </span>
+
+              </label>
+
+            </div>
+
+
+
+            <!-- ABAS --
+            <div class="toggle-tabs"></div>                   <<<==== OBRIGATORIO PARA FAZER A DIVISÃO DOS CONTEUDOS
+
+
+
+            ====CONTEÚDOS====
+
+            <!-- CRIANÇAS --
+            <div
+              class="toggle-content"                          <<<==== COLOQUE TODO O CONTEUDO QUE SERA GERENCIADO PELO CHECKBOX DENTRO DELE
+              data-content="criancas"                         <<<==== COLOQUE O MESMO NOME DATA-CONTENT QUE COLOCOU NOS CHECKBOX 
+              >
+
+              <div class="form-group">
+
+                <label>
+                  Nome da criança
+                </label>
+
+                <input type="text">
+
+              </div>
+
+            </div>
+
+
+
+
+
+            <!-- IDOSOS --
+            <div
+              class="toggle-content"
+              data-content="idosos"
+              >
+
+              <div class="form-group">
+
+                <label>
+                  Responsável
+                </label>
+
+                <input type="text">
+
+              </div>
+
+            </div>
+
+
+
+
+
+            <!-- PCD --
+            <div
+              class="toggle-content"
+              data-content="pcd"
+              >
+
+              <div class="form-group">
+
+                <label>
+                  Tipo de deficiência
+                </label>
+
+                <input type="text">
+
+              </div>
+
+            </div>
+
+        </div>
+
+
+
+
+      FIM 5.2
+
+
+
+
+
+      5.3: GERENCIADOR DE CONTEUDO
+
+
+
+
+        <!-- NOVO GERENCIADOR --
+        <div class="card">
+          <div class="tabs-fixed">
+
+            <button
+                class="toggle-tab active"
+                data-fixed-tab="crias">
+                Crianças e Adolescentes
+              </button>
+
+            <button
+                class="toggle-tab"
+                data-fixed-tab="idos">
+                Idosos
+              </button>
+
+            <button
+                class="toggle-tab"
+                data-fixed-tab="pc">
+                PCD
+              </button>
+
+          </div>
+
+
+          <!-- PRIMEIRO CONTEUDO --
+          <div class="fixed-content active" data-fixed-content="crias">
+
+            <div class="table-container">
+              <table class="table-fixed">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Status</th>
+                    <th>Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Jorge</td>
+                    <td>22</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Maria Souza</td>
+                    <td>31</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Carlos Henrique</td>
+                    <td>27</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Ana Clara</td>
+                    <td>19</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Pedro Lucas</td>
+                    <td>40</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <br><br>
+
+          </div>
+
+
+          <!--CONTEUDO IDOSOS --
+          <div class="fixed-content" data-fixed-content="idos">
+
+            <div class="table-container">
+              <table class="table-fixed">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Status</th>
+                    <th>Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Fernanda Lima</td>
+                    <td>25</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Gabriel Martins</td>
+                    <td>29</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Juliana Costa</td>
+                    <td>34</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Rafael Gomes</td>
+                    <td>45</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Patrícia Alves</td>
+                    <td>38</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Bruno Oliveira</td>
+                    <td>24</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+          </div>
+
+
+          <!-- CONTEUDO PCD --
+          <div class="fixed-content" data-fixed-content="pc">
+
+            <div class="table-container">
+              <table class="table-fixed">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Status</th>
+                    <th>Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lucas Ferreira</td>
+                    <td>20</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Camila Rocha</td>
+                    <td>33</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Eduardo Silva</td>
+                    <td>41</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Larissa Mendes</td>
+                    <td>28</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Thiago Barbosa</td>
+                    <td>36</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Beatriz Santos</td>
+                    <td>26</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Ricardo Almeida</td>
+                    <td>48</td>
+                    <td><span class="status success">Ativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-outline">Editar</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Vanessa Ribeiro</td>
+                    <td>30</td>
+                    <td><span class="status error">Inativo</span></td>
+                    <td class="table-actions">
+                      <button class="button button-danger">Excluir</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+      FIM 5.3
+
+
+
+      5.4: TOLTIP (AJUDA COM INFORMAÇÕES AO PASSAR O MOUSE POR CIMA DO "?")
+
+
+        <div class="pd-tooltip">
+
+          <button class="button">Filtrar</button>     <<<<===== conteudo que vai ter ao lado do "?"
+
+          <span
+            class="pd-tooltip-help"
+            tabindex="0"
+            aria-label="Ajuda"
+            role="button"
+          ></span>
+
+          <span class="pd-tooltip-text" role="tooltip">
+            Salva as alterações realizadas.                     <<<====Descrição ao passar o mouse por cima do "?"
+          </span>
+        </div>
+
+
+
+      FIM 5.4
+
+
+
+
+    FIM 5 INTERAÇÕES PERSONALIZADOS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    **BLOQUEADO (RETIRADO) POR TEMPO INDETERMINADO**
 
 ====CHECKBOX PARA BLOQUEAR CONTEUDO DENTRO DELE====
 
@@ -776,478 +1498,3 @@
 
 
 
-====FIM CHECK BLOQUEAR CONTEUDO====
-
-  
-
-
-
-
-
-
-
-====CHECKBOX DE GERENCIADOR CONTEUDO====
-
-
-    <div class="card">                       <<<<=== ***TODO*** O CONTEUDO DEVE SER ENVOLVIDO PELOS CARDS
-
-        <h3>
-          Categorias do Caso
-        </h3>
-
-        <!-- CHECKBOXES --
-        <div class="toggle-group">            <<<<=== COLOCAR TODO O CONTEUDO DO TOGGLE-CHECK DENTRO DELE
-
-          <label class="toggle-check">        <<<= envolve o checkbox e os nomes dos "quadrados de ativação"
-
-            <input
-              type="checkbox"
-              data-toggle="criancas"
-            >
-
-            <span>
-              Crianças e Adolescentes
-            </span>
-
-          </label>
-
-
-
-          <label class="toggle-check">
-
-            <input
-              type="checkbox"
-              data-toggle="idosos"
-            >
-
-            <span>
-              Idosos
-            </span>
-
-          </label>
-
-
-
-          <label class="toggle-check">
-
-            <input
-              type="checkbox"
-              data-toggle="pcd"
-            >
-
-            <span>
-              PCD
-            </span>
-
-          </label>
-
-        </div>
-
-
-
-        <!-- ABAS --
-        <div class="toggle-tabs"></div>                   <<<==== OBRIGATORIO PARA FAZER A DIVISÃO DOS CONTEUDOS
-
-
-
-        ====CONTEÚDOS====
-
-        <!-- CRIANÇAS --
-        <div
-          class="toggle-content"                          <<<==== COLOQUE TODO O CONTEUDO QUE SERA GERENCIADO PELO CHECKBOX DENTRO DELE
-          data-content="criancas"                         <<<==== COLOQUE O MESMO NOME DATA-CONTENT QUE COLOCOU NOS CHECKBOX 
-          >
-
-          <div class="form-group">
-
-            <label>
-              Nome da criança
-            </label>
-
-            <input type="text">
-
-          </div>
-
-        </div>
-
-
-
-
-
-        <!-- IDOSOS --
-        <div
-          class="toggle-content"
-          data-content="idosos"
-          >
-
-          <div class="form-group">
-
-            <label>
-              Responsável
-            </label>
-
-            <input type="text">
-
-          </div>
-
-        </div>
-
-
-
-
-
-        <!-- PCD --
-        <div
-          class="toggle-content"
-          data-content="pcd"
-          >
-
-          <div class="form-group">
-
-            <label>
-              Tipo de deficiência
-            </label>
-
-            <input type="text">
-
-          </div>
-
-        </div>
-
-    </div>
-
-
-
-
-====FIM CHECK ESCONDER====
-
-
-
-
-
-
-
-  ====MODAL ALERTA SUPERIOR DIREITO====
-
-    (NÃO É RETIRADO CLICANDO E DEIXA O USUÁRIO CONTINUAR MEXENDO NA INTERFACE)
-
-
-    <div class="modal right-alert" id="modal-right-alert">
-      <div>
-
-        <h3>Aviso</h3>
-
-        <div class="modal-body-aviso">
-          <p>Teste de aviso</p>
-        </div>
-      </div>
-    </div>
-
-  ====FIM MODAL ALERTA SUPERIOR
-
-
-
-
-  ====MODAL COM BOTÃO DE ROLAGEM LATERAL PARA VIDEOS E OUTROS====
-
-
-    <div class="modal" id="modal-content">
-
-    <div>
-
-      <div class="right" data-modal-close>
-        ✕
-      </div>
-
-      <h2>VÍDEOS - SIGPS</h2>
-
-      <div class="modal-body">
-
-        <div class="scroll-body">           <<<===COLOCAR ESSA CLASS E COLOCAR OS CONTEUDOS DESEJADOS DENTRO DELA, *JUNTO COM OS BOTÕES*
-
-          <!-- BOTÃO ANTERIOR --
-          <button
-            type="button"
-            data-scroll-prev                      <<<===COLOCAR ESSA "TAG" NO BOTÃO (CÓPIE ELE INTEIRO PARA SER MASI FÁCIL)
-            aria-label="Conteúdo anterior">
-            ❮
-          </button>
-
-
-          <!-- CONTEÚDO 1 --
-          <div data-scroll-content>                            <<<< TAG PARA COLOCAR EM TODA DIV DE CONTEUDO
-            <h4>AVISE 00 - Apresentação</h4>
-
-            <iframe
-              src="https://www.youtube.com/embed/TkDv7sxq5do"
-              title="AVISE 00 - Apresentação"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-
-          <!-- CONTEÚDO 2 --
-          <div data-scroll-content>
-            <h4>AVISE 01 - Concessão da 1ª Parcela</h4>
-
-            <iframe
-              src="https://www.youtube.com/embed/6Q_BUxtgQzc"
-              title="AVISE 01"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-
-          <!-- CONTEÚDO 3 --
-          <div data-scroll-content>
-            <h4>AVISE 02 - Concessão da 2ª Parcela</h4>
-
-            <iframe
-              src="https://www.youtube.com/embed/UwgRzG7i9kw"
-              title="AVISE 02"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-
-          <!-- BOTÃO PRÓXIMO --
-          <button
-            type="button"
-            data-scroll-next
-            aria-label="Próximo conteúdo">
-            ❯
-          </button>
-
-        </div>
-
-
-        ***OUTROS CONTEUDOS PARA COLOCAR DPS DOS VÍDEOS***
-  
-
-      </div>
-
-    </div>
-
-  </div>
-  
-  
-
-
-
-  <!--====TAGS DIFERENTES NOS ***MODAIS DE AVISO***====-
-
-
-    <!-- MODAL DE CARREGAMENTO --
-
-    <div class="modal loading " id="modal-loading">
-      <div>
-        <h3>
-          Carregando os Dados
-        </h3>
-        <div class="modal-body-aviso">
-          <div class=" card flex">
-            
-            <div class="spinner"></div>
-            
-          </div>
-          
-        </div>
-        
-      </div>
-
-    </div>
-
-
-  <====MODAL DE CONFIRMAÇÃO====>
-
- <div class="modal info" id="modal-info">
- 
-      <div>
-        <h3>Carregamento</h3>
-
-        <div class="modal-body-aviso">                           <<<<<=========
-          <p>
-            Os dados foram salvos com sucesso. <br>
-            Deseja continuar?
-          </p>
-
-
-          <div>
-
-            <button class="button">
-              Sim
-            </button>
-            <button class="button button-outline" data-modal-close>
-              Não
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-
-
-
-  MODAL DE SUCESSO
-
-
-  <div class="modal success" id="modal-success">
-
-    <div>
-
-      <h3>
-        Sucesso
-      </h3>
-
-      <div class="modal-body-aviso">
-
-        <p>
-          Os dados foram salvos com sucesso.
-        </p>
-
-        <div>
-
-          <button class="button button-success" data-modal-close>
-            OK
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-
-    MODAL DE ERRO
-
-
-      <div class="modal error" id="modal-error">
-
-        <div>
-
-          <h3>
-            Erro
-          </h3>
-
-          <div class="modal-body-aviso">
-
-            <p>
-              Não foi possível concluir a operação.
-            </p>
-
-            <div>
-
-              <button class="button button-danger" data-modal-close>
-                Fechar
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-  <!--====FIM MODAIS DE AVISO====--
-
-
-
-
-
-
-====FIM MODAL====
-
-
-
-
-
-
-====ALERT EX:====
-
-
-  <div class="card">
-      <div class="alert alert-success">
-        Sistema carregado com sucesso!
-      </div>
-    </div>
-
-
-====FIM ALERT====
-
-
-====COLLAPSE EX:====
-
-  <div class = "card">
-      <div class="gov-collapse">
-
-        <div class="gov-collapse-header">
-
-          <span class="gov-collapse-icon"> ▾ </span>   = icone obrigatório (junto com o texto para clicar e fazer a ativação)
-
-          <span>
-          Filtros avançados
-          </span>
-
-        </div>
-
-        <div class="gov-collapse-content">
-
-          <!-- conteúdo 
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-====FIM COLLAPSE====
-
-
-
-
-
-
-
-
-====BOTÃO QUE ACOMPANHA A TELA (LOCALIZADO NO CANTO INFERIOR DIREITO)====
-
-
-
-
-
-
-====FIM BOTÃO QUE ACOMPANHA A TELA====
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- -->
